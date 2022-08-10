@@ -11,7 +11,7 @@ router.post("/addOrder", async(req,res)=>{
         console.log(id)
         const qty=inventory_detail[0].available_quantity;
         const qty_this=req.body.quantity;
-        if(qty_this<=qty)
+        if(qty_this<=qty && qty!==0)
         {
             const orders = new orderModal(req.body);
             const createOrders = await orders.save();
