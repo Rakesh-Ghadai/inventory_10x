@@ -17,7 +17,7 @@ router.post("/addOrder", async(req,res)=>{
             const createOrders = await orders.save();
             const updateInventory = await inventoryModal.findOneAndUpdate({inventory_id:id},{
                 $set:{
-                    available_quantity:qty_this
+                    available_quantity:qty-qty_this
                 }
             })
             res.status(201).send(createOrders);
